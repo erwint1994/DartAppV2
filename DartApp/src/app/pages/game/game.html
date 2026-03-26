@@ -1,0 +1,121 @@
+<div class="game-container">
+
+  <!-- Match Winner Overlay -->
+  @if (matchWinner(); as winner) {
+    <div class="overlay">
+      <div class="overlay-content">
+        <span class="overlay-icon">🏆</span>
+        <h2>Player {{ winner }} Wins!</h2>
+        <div class="overlay-actions">
+          <button type="button" class="btn btn-accent" (click)="restartMatch()">Rematch</button>
+          <button type="button" class="btn btn-muted" (click)="goBack()">Dashboard</button>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Header -->
+  <header class="game-header">
+    <button type="button" class="back-btn" (click)="goBack()">← Back</button>
+    <div class="match-info">
+      Best of {{ bestOfSets() }} sets · {{ bestOfLegs() }} legs
+    </div>
+  </header>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="player-panel" [class.active]="currentPlayer() === 1">
+      <div class="player-label">Player 1</div>
+      <div class="player-score">{{ player1().score }}</div>
+      <div class="player-stats">
+        <span>Sets: {{ player1().setsWon }}</span>
+        <span>Legs: {{ player1().legsWon }}</span>
+      </div>
+    </div>
+    <div class="score-divider">
+      <span class="vs-text">VS</span>
+    </div>
+    <div class="player-panel" [class.active]="currentPlayer() === 2">
+      <div class="player-label">Player 2</div>
+      <div class="player-score">{{ player2().score }}</div>
+      <div class="player-stats">
+        <span>Sets: {{ player2().setsWon }}</span>
+        <span>Legs: {{ player2().legsWon }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Suggestion -->
+  @if (checkoutHint(); as hint) {
+    <div class="checkout-hint">
+      <span class="checkout-label">Checkout</span>
+      <span class="checkout-route">{{ hint }}</span>
+    </div>
+  }
+
+  <!-- Bust Indicator -->
+  @if (lastBust()) {
+    <div class="bust-banner">BUST! Score reset.</div>
+  }
+
+  <!-- Turn Indicator + Input Display -->
+  <div class="input-section">
+    <div class="turn-label">Player {{ currentPlayer() }}'s turn</div>
+    <div class="input-display">{{ displayInput() }}</div>
+  </div>
+
+  <!-- Quick Score Buttons -->
+  <div class="quick-scores">
+    <button type="button" class="quick-btn" (click)="quickScore(26)">26</button>
+    <button type="button" class="quick-btn" (click)="quickScore(41)">41</button>
+    <button type="button" class="quick-btn" (click)="quickScore(45)">45</button>
+    <button type="button" class="quick-btn" (click)="quickScore(60)">60</button>
+    <button type="button" class="quick-btn" (click)="quickScore(85)">85</button>
+    <button type="button" class="quick-btn" (click)="quickScore(100)">100</button>
+    <button type="button" class="quick-btn" (click)="quickScore(140)">140</button>
+    <button type="button" class="quick-btn" (click)="quickScore(180)">180</button>
+  </div>
+
+  <!-- Numpad -->
+  <div class="numpad">
+    <button type="button" class="num-btn" (click)="pressDigit('1')">1</button>
+    <button type="button" class="num-btn" (click)="pressDigit('2')">2</button>
+    <button type="button" class="num-btn" (click)="pressDigit('3')">3</button>
+    <button type="button" class="num-btn" (click)="pressDigit('4')">4</button>
+    <button type="button" class="num-btn" (click)="pressDigit('5')">5</button>
+    <button type="button" class="num-btn" (click)="pressDigit('6')">6</button>
+    <button type="button" class="num-btn" (click)="pressDigit('7')">7</button>
+    <button type="button" class="num-btn" (click)="pressDigit('8')">8</button>
+    <button type="button" class="num-btn" (click)="pressDigit('9')">9</button>
+    <button type="button" class="num-btn fn-btn" (click)="pressClear()">C</button>
+    <button type="button" class="num-btn" (click)="pressDigit('0')">0</button>
+    <button type="button" class="num-btn fn-btn" (click)="pressBackspace()">⌫</button>
+  </div>
+
+  <!-- Confirm + Undo -->
+  <div class="action-row">
+    <button type="button" class="confirm-btn" (click)="confirmScore()">Confirm Score</button>
+    <button
+      type="button"
+      class="undo-btn"
+      [class.disabled]="!canUndo()"
+      (click)="undoLast()"
+    >↩ Undo</button>
+  </div>
+
+  <!-- Recent History -->
+  @if (history().length > 0) {
+    <div class="history-section">
+      <h3>Recent</h3>
+      <div class="history-list">
+        @for (entry of history().slice(-6).reverse(); track $index) {
+          <div class="history-row">
+            <span class="history-player">P{{ entry.player }}</span>
+            <span class="history-scored">{{ entry.scored }}</span>
+            <span class="history-remaining">→ {{ entry.remaining }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

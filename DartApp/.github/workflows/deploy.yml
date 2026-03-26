@@ -1,0 +1,56 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: DartApp/package-lock.json
+
+      - name: Install dependencies
+        working-directory: DartApp
+        run: npm ci
+
+      - name: Lint
+        working-directory: DartApp
+        run: npx ng lint
+
+      - name: Build
+        working-directory: DartApp
+        run: npx ng build --base-href /${{ github.event.repository.name }}/
+
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp DartApp/dist/DartApp/browser/index.html DartApp/dist/DartApp/browser/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: DartApp/dist/DartApp/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,42 @@
+<div class="setup-container">
+  <button type="button" class="back-btn" (click)="goBack()">← Back</button>
+
+  <div class="setup-content">
+    <h1>1 vs 1 — 501</h1>
+    <p class="setup-subtitle">Configure your match</p>
+
+    <div class="option-group">
+      <h3>Best of Sets</h3>
+      <div class="option-buttons">
+        @for (s of setsOptions; track s) {
+          <button
+            type="button"
+            class="option-btn"
+            [class.active]="selectedSets() === s"
+            (click)="selectSets(s)"
+          >
+            {{ s }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="option-group">
+      <h3>Legs per Set</h3>
+      <div class="option-buttons">
+        @for (l of legsOptions; track l) {
+          <button
+            type="button"
+            class="option-btn"
+            [class.active]="selectedLegs() === l"
+            (click)="selectLegs(l)"
+          >
+            {{ l }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <button type="button" class="play-btn" (click)="startGame()">🎯 Start Match</button>
+  </div>
+</div>

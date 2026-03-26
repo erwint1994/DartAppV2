@@ -13,18 +13,6 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
-
-/**
  * Serve static files from /browser
  */
 app.use(
@@ -58,6 +46,7 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
       throw error;
     }
 
+    // eslint-disable-next-line no-console
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }

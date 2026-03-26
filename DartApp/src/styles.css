@@ -1,1 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles — theme tokens live in theme.css */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grid background + center glow — applied to body */
+body {
+  background-image:
+    var(--gradient-glow),
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size);
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Shared utility classes */
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+  transition: color var(--transition-normal);
+}
+
+.back-btn:hover {
+  color: var(--accent);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.placeholder-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.placeholder h2 {
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.placeholder p {
+  margin: 0;
+}
