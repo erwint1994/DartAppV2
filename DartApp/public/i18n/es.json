@@ -1,0 +1,66 @@
+{
+  "common": {
+    "back": "← Volver",
+    "comingSoon": "Próximamente",
+    "vs": "VS",
+    "player": "Jugador",
+    "sets": "Sets",
+    "legs": "Legs"
+  },
+  "home": {
+    "title": "DartApp",
+    "subtitle": "Sigue tu juego. Mejora tu puntería.",
+    "start": "Empezar a Jugar"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "selectGame": "Elige un Juego",
+    "profile": "Perfil",
+    "settings": "Ajustes",
+    "games": {
+      "1v1-501": {
+        "title": "1 vs 1 — 501",
+        "description": "Juego clásico de 501 contra un amigo"
+      },
+      "1vbot-501": {
+        "title": "1 vs Bot — 501",
+        "description": "Juega al 501 contra el ordenador"
+      },
+      "999": {
+        "title": "999",
+        "description": "Consigue la mayor puntuación posible"
+      }
+    }
+  },
+  "gameSetup": {
+    "title": "1 vs 1 — 501",
+    "subtitle": "Configura tu partida",
+    "bestOfSets": "Mejor de Sets",
+    "legsPerSet": "Legs por Set",
+    "startMatch": "Iniciar Partida"
+  },
+  "game": {
+    "bestOf": "Mejor de",
+    "playerWins": "¡Jugador {{winner}} Gana!",
+    "rematch": "Revancha",
+    "dashboard": "Panel",
+    "checkout": "Checkout",
+    "bust": "¡BUST! Puntuación reiniciada.",
+    "turnLabel": "Turno del Jugador {{player}}",
+    "confirmScore": "Confirmar Puntuación",
+    "undo": "Deshacer",
+    "recent": "Reciente"
+  },
+  "profile": {
+    "title": "Perfil",
+    "description": "Tu perfil — próximamente"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "language": "Idioma",
+    "about": "Acerca de",
+    "version": "Versión",
+    "showReleaseNotes": "Mostrar notas de la versión",
+    "hideReleaseNotes": "Ocultar notas de la versión"
+  }
+}

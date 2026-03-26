@@ -1,8 +1,59 @@
 <div class="settings-container">
-  <button type="button" class="back-btn" (click)="goBack()">← Back</button>
-  <div class="placeholder">
-    <span class="placeholder-icon">⚙️</span>
-    <h2>Settings</h2>
-    <p>App settings — coming soon</p>
-  </div>
+  <button type="button" class="back-btn" (click)="goBack()">{{ i18n.t('common.back') }}</button>
+
+  <h1 class="page-title">⚙️ {{ i18n.t('settings.title') }}</h1>
+
+  <!-- Language Section -->
+  <section class="settings-section">
+    <h2 class="section-title">{{ i18n.t('settings.language') }}</h2>
+    <div class="lang-grid">
+      @for (lang of languages; track lang.code) {
+        <button
+          type="button"
+          class="lang-btn"
+          [class.active]="selectedLanguage() === lang.code"
+          (click)="selectLanguage(lang.code)"
+        >
+          {{ lang.label }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <!-- Version & Release Notes -->
+  <section class="settings-section">
+    <h2 class="section-title">{{ i18n.t('settings.about') }}</h2>
+
+    <div class="version-card">
+      <div class="version-row">
+        <span class="version-label">{{ i18n.t('settings.version') }}</span>
+        <span class="version-value">{{ appVersion }}</span>
+      </div>
+      <button
+        type="button"
+        class="release-toggle"
+        (click)="toggleReleaseNotes()"
+      >
+        {{ showReleaseNotes() ? i18n.t('settings.hideReleaseNotes') : i18n.t('settings.showReleaseNotes') }}
+      </button>
+    </div>
+
+    @if (showReleaseNotes()) {
+      <div class="release-notes">
+        @for (release of releaseNotes; track release.version) {
+          <div class="release-entry">
+            <div class="release-header">
+              <span class="release-version">v{{ release.version }}</span>
+              <span class="release-date">{{ release.date }}</span>
+            </div>
+            <ul class="release-list">
+              @for (item of release.highlights; track $index) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    }
+  </section>
 </div>

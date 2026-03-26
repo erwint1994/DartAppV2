@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 
 interface PlayerState {
   score: number;
@@ -177,6 +178,7 @@ const CHECKOUTS: Record<number, string> = {
 export class GameComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
+  readonly i18n = inject(TranslationService);
 
   /** Match config */
   readonly bestOfSets = signal(1);

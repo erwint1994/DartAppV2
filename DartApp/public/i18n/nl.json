@@ -1,0 +1,66 @@
+{
+  "common": {
+    "back": "← Terug",
+    "comingSoon": "Binnenkort",
+    "vs": "VS",
+    "player": "Speler",
+    "sets": "Sets",
+    "legs": "Legs"
+  },
+  "home": {
+    "title": "DartApp",
+    "subtitle": "Volg je spel. Verbeter je aim.",
+    "start": "Start Spel"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "selectGame": "Kies een Spel",
+    "profile": "Profiel",
+    "settings": "Instellingen",
+    "games": {
+      "1v1-501": {
+        "title": "1 vs 1 — 501",
+        "description": "Klassiek 501 spel tegen een vriend"
+      },
+      "1vbot-501": {
+        "title": "1 vs Bot — 501",
+        "description": "Speel 501 tegen de computer"
+      },
+      "999": {
+        "title": "999",
+        "description": "Score zo hoog als je kan"
+      }
+    }
+  },
+  "gameSetup": {
+    "title": "1 vs 1 — 501",
+    "subtitle": "Configureer je wedstrijd",
+    "bestOfSets": "Best of Sets",
+    "legsPerSet": "Legs per Set",
+    "startMatch": "Start Wedstrijd"
+  },
+  "game": {
+    "bestOf": "Best of",
+    "playerWins": "Speler {{winner}} Wint!",
+    "rematch": "Opnieuw",
+    "dashboard": "Dashboard",
+    "checkout": "Checkout",
+    "bust": "BUST! Score gereset.",
+    "turnLabel": "Speler {{player}} aan de beurt",
+    "confirmScore": "Bevestig Score",
+    "undo": "Ongedaan",
+    "recent": "Recent"
+  },
+  "profile": {
+    "title": "Profiel",
+    "description": "Je profiel — binnenkort beschikbaar"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "language": "Taal",
+    "about": "Over",
+    "version": "Versie",
+    "showReleaseNotes": "Toon Release Notes",
+    "hideReleaseNotes": "Verberg Release Notes"
+  }
+}

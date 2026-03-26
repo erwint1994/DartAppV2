@@ -5,10 +5,10 @@
     <div class="overlay">
       <div class="overlay-content">
         <span class="overlay-icon">🏆</span>
-        <h2>Player {{ winner }} Wins!</h2>
+        <h2>{{ i18n.t('game.playerWins', { winner: winner }) }}</h2>
         <div class="overlay-actions">
-          <button type="button" class="btn btn-accent" (click)="restartMatch()">Rematch</button>
-          <button type="button" class="btn btn-muted" (click)="goBack()">Dashboard</button>
+          <button type="button" class="btn btn-accent" (click)="restartMatch()">{{ i18n.t('game.rematch') }}</button>
+          <button type="button" class="btn btn-muted" (click)="goBack()">{{ i18n.t('game.dashboard') }}</button>
         </div>
       </div>
     </div>
@@ -16,31 +16,31 @@
 
   <!-- Header -->
   <header class="game-header">
-    <button type="button" class="back-btn" (click)="goBack()">← Back</button>
+    <button type="button" class="back-btn" (click)="goBack()">{{ i18n.t('common.back') }}</button>
     <div class="match-info">
-      Best of {{ bestOfSets() }} sets · {{ bestOfLegs() }} legs
+      {{ i18n.t('game.bestOf') }} {{ bestOfSets() }} {{ i18n.t('common.sets') }} · {{ bestOfLegs() }} {{ i18n.t('common.legs') }}
     </div>
   </header>
 
   <!-- Scoreboard -->
   <div class="scoreboard">
     <div class="player-panel" [class.active]="currentPlayer() === 1">
-      <div class="player-label">Player 1</div>
+      <div class="player-label">{{ i18n.t('common.player') }} 1</div>
       <div class="player-score">{{ player1().score }}</div>
       <div class="player-stats">
-        <span>Sets: {{ player1().setsWon }}</span>
-        <span>Legs: {{ player1().legsWon }}</span>
+        <span>{{ i18n.t('common.sets') }}: {{ player1().setsWon }}</span>
+        <span>{{ i18n.t('common.legs') }}: {{ player1().legsWon }}</span>
       </div>
     </div>
     <div class="score-divider">
-      <span class="vs-text">VS</span>
+      <span class="vs-text">{{ i18n.t('common.vs') }}</span>
     </div>
     <div class="player-panel" [class.active]="currentPlayer() === 2">
-      <div class="player-label">Player 2</div>
+      <div class="player-label">{{ i18n.t('common.player') }} 2</div>
       <div class="player-score">{{ player2().score }}</div>
       <div class="player-stats">
-        <span>Sets: {{ player2().setsWon }}</span>
-        <span>Legs: {{ player2().legsWon }}</span>
+        <span>{{ i18n.t('common.sets') }}: {{ player2().setsWon }}</span>
+        <span>{{ i18n.t('common.legs') }}: {{ player2().legsWon }}</span>
       </div>
     </div>
   </div>
@@ -48,19 +48,19 @@
   <!-- Checkout Suggestion -->
   @if (checkoutHint(); as hint) {
     <div class="checkout-hint">
-      <span class="checkout-label">Checkout</span>
+      <span class="checkout-label">{{ i18n.t('game.checkout') }}</span>
       <span class="checkout-route">{{ hint }}</span>
     </div>
   }
 
   <!-- Bust Indicator -->
   @if (lastBust()) {
-    <div class="bust-banner">BUST! Score reset.</div>
+    <div class="bust-banner">{{ i18n.t('game.bust') }}</div>
   }
 
   <!-- Turn Indicator + Input Display -->
   <div class="input-section">
-    <div class="turn-label">Player {{ currentPlayer() }}'s turn</div>
+    <div class="turn-label">{{ i18n.t('game.turnLabel', { player: currentPlayer() }) }}</div>
     <div class="input-display">{{ displayInput() }}</div>
   </div>
 
@@ -94,19 +94,19 @@
 
   <!-- Confirm + Undo -->
   <div class="action-row">
-    <button type="button" class="confirm-btn" (click)="confirmScore()">Confirm Score</button>
+    <button type="button" class="confirm-btn" (click)="confirmScore()">{{ i18n.t('game.confirmScore') }}</button>
     <button
       type="button"
       class="undo-btn"
       [class.disabled]="!canUndo()"
       (click)="undoLast()"
-    >↩ Undo</button>
+    >↩ {{ i18n.t('game.undo') }}</button>
   </div>
 
   <!-- Recent History -->
   @if (history().length > 0) {
     <div class="history-section">
-      <h3>Recent</h3>
+      <h3>{{ i18n.t('game.recent') }}</h3>
       <div class="history-list">
         @for (entry of history().slice(-6).reverse(); track $index) {
           <div class="history-row">

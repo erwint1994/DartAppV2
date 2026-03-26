@@ -1,28 +1,28 @@
 <div class="dashboard-container">
   <header class="dashboard-header">
-    <h1>🎯 Dashboard</h1>
+    <h1>🎯 {{ i18n.t('dashboard.title') }}</h1>
     <div class="header-actions">
-      <button type="button" class="icon-btn" title="Profile" (click)="goToProfile()">👤</button>
-      <button type="button" class="icon-btn" title="Settings" (click)="goToSettings()">⚙️</button>
+      <button type="button" class="icon-btn" [title]="i18n.t('dashboard.profile')" (click)="goToProfile()">👤</button>
+      <button type="button" class="icon-btn" [title]="i18n.t('dashboard.settings')" (click)="goToSettings()">⚙️</button>
     </div>
   </header>
 
   <section class="games-section">
-    <h2>Select a Game</h2>
+    <h2>{{ i18n.t('dashboard.selectGame') }}</h2>
     <div class="games-grid">
       @for (game of games; track game.id) {
         <button
           type="button"
           class="game-card"
           [class.disabled]="!game.enabled"
-          [attr.title]="game.enabled ? game.title : 'Coming soon'"
+          [attr.title]="game.enabled ? i18n.t(game.titleKey) : i18n.t('common.comingSoon')"
           (click)="selectGame(game)"
         >
           <span class="game-icon">{{ game.icon }}</span>
-          <span class="game-title">{{ game.title }}</span>
-          <span class="game-desc">{{ game.description }}</span>
+          <span class="game-title">{{ i18n.t(game.titleKey) }}</span>
+          <span class="game-desc">{{ i18n.t(game.descKey) }}</span>
           @if (!game.enabled) {
-            <span class="coming-soon">Coming Soon</span>
+            <span class="coming-soon">{{ i18n.t('common.comingSoon') }}</span>
           }
         </button>
       }

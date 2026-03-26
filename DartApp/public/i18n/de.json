@@ -1,0 +1,66 @@
+{
+  "common": {
+    "back": "← Zurück",
+    "comingSoon": "Demnächst",
+    "vs": "VS",
+    "player": "Spieler",
+    "sets": "Sets",
+    "legs": "Legs"
+  },
+  "home": {
+    "title": "DartApp",
+    "subtitle": "Verfolge dein Spiel. Verbessere dein Ziel.",
+    "start": "Spiel starten"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "selectGame": "Spiel auswählen",
+    "profile": "Profil",
+    "settings": "Einstellungen",
+    "games": {
+      "1v1-501": {
+        "title": "1 vs 1 — 501",
+        "description": "Klassisches 501 Spiel gegen einen Freund"
+      },
+      "1vbot-501": {
+        "title": "1 vs Bot — 501",
+        "description": "Spiele 501 gegen den Computer"
+      },
+      "999": {
+        "title": "999",
+        "description": "Erziele so viele Punkte wie möglich"
+      }
+    }
+  },
+  "gameSetup": {
+    "title": "1 vs 1 — 501",
+    "subtitle": "Konfiguriere dein Match",
+    "bestOfSets": "Best of Sets",
+    "legsPerSet": "Legs pro Set",
+    "startMatch": "Match starten"
+  },
+  "game": {
+    "bestOf": "Best of",
+    "playerWins": "Spieler {{winner}} Gewinnt!",
+    "rematch": "Nochmal",
+    "dashboard": "Dashboard",
+    "checkout": "Checkout",
+    "bust": "BUST! Punkte zurückgesetzt.",
+    "turnLabel": "Spieler {{player}} ist dran",
+    "confirmScore": "Punkte bestätigen",
+    "undo": "Rückgängig",
+    "recent": "Verlauf"
+  },
+  "profile": {
+    "title": "Profil",
+    "description": "Dein Profil — demnächst verfügbar"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "about": "Über",
+    "version": "Version",
+    "showReleaseNotes": "Release Notes anzeigen",
+    "hideReleaseNotes": "Release Notes ausblenden"
+  }
+}

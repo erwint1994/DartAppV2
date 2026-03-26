@@ -1,12 +1,12 @@
 <div class="setup-container">
-  <button type="button" class="back-btn" (click)="goBack()">← Back</button>
+  <button type="button" class="back-btn" (click)="goBack()">{{ i18n.t('common.back') }}</button>
 
   <div class="setup-content">
-    <h1>1 vs 1 — 501</h1>
-    <p class="setup-subtitle">Configure your match</p>
+    <h1>{{ i18n.t('gameSetup.title') }}</h1>
+    <p class="setup-subtitle">{{ i18n.t('gameSetup.subtitle') }}</p>
 
     <div class="option-group">
-      <h3>Best of Sets</h3>
+      <h3>{{ i18n.t('gameSetup.bestOfSets') }}</h3>
       <div class="option-buttons">
         @for (s of setsOptions; track s) {
           <button
@@ -22,7 +22,7 @@
     </div>
 
     <div class="option-group">
-      <h3>Legs per Set</h3>
+      <h3>{{ i18n.t('gameSetup.legsPerSet') }}</h3>
       <div class="option-buttons">
         @for (l of legsOptions; track l) {
           <button
@@ -37,6 +37,6 @@
       </div>
     </div>
 
-    <button type="button" class="play-btn" (click)="startGame()">🎯 Start Match</button>
+    <button type="button" class="play-btn" (click)="startGame()">🎯 {{ i18n.t('gameSetup.startMatch') }}</button>
   </div>
 </div>

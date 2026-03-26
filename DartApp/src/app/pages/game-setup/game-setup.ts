@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-game-setup',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameSetupComponent {
+  readonly i18n = inject(TranslationService);
   readonly setsOptions = [1, 3, 5, 7];
   readonly legsOptions = [1, 3, 5];
 

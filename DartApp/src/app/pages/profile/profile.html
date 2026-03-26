@@ -1,8 +1,8 @@
 <div class="profile-container">
-  <button type="button" class="back-btn" (click)="goBack()">← Back</button>
+  <button type="button" class="back-btn" (click)="goBack()">{{ i18n.t('common.back') }}</button>
   <div class="placeholder">
     <span class="placeholder-icon">👤</span>
-    <h2>Profile</h2>
-    <p>Your profile — coming soon</p>
+    <h2>{{ i18n.t('profile.title') }}</h2>
+    <p>{{ i18n.t('profile.description') }}</p>
   </div>
 </div>

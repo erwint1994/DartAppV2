@@ -1,8 +1,8 @@
 <div class="home-container">
   <div class="home-content">
     <div class="logo-box">🎯</div>
-    <h1 class="title">DartApp</h1>
-    <p class="subtitle">Track your game. Sharpen your aim.</p>
-    <button type="button" class="start-btn" (click)="start()">Start Playing</button>
+    <h1 class="title">{{ i18n.t('home.title') }}</h1>
+    <p class="subtitle">{{ i18n.t('home.subtitle') }}</p>
+    <button type="button" class="start-btn" (click)="start()">{{ i18n.t('home.start') }}</button>
   </div>
 </div>
